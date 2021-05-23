@@ -1,0 +1,9 @@
+@media print {
+#content .span-t {
+    background: #010101 !important;
+    display: inline-flex !important;
+    color: #fff !important;
+    padding: 5px 10px !important;
+    text-align: center !important;
+}
+}

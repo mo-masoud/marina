@@ -1,0 +1,4 @@
+[21-Oct-2019 10:33:53 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\SingerController::RegisterOrLogin() in /home/omar/public_html/marina/app/Http/Controllers/SingerController.php on line 63
+[14-Jan-2021 07:34:49 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/marinaal/public_html/vendor/larapack/hooks/src/Commands/UninstallCommand.php on line 8
+[14-Jan-2021 09:00:01 UTC] PHP Parse error:  syntax error, unexpected '?', expecting variable (T_VARIABLE) in /home/marinaal/public_html/vendor/zendframework/zend-diactoros/src/functions/marshal_uri_from_sapi.php on line 83
+[14-Jan-2021 09:30:01 UTC] PHP Parse error:  syntax error, unexpected '?', expecting variable (T_VARIABLE) in /home/marinaal/public_html/vendor/zendframework/zend-diactoros/src/functions/marshal_uri_from_sapi.php on line 83

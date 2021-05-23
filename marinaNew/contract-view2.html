@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <meta name="author" content="Hadeer Magdy">
+        <meta name="description" content="NumScroller - jQuery plugin for number increment rolling animation when it becomes visibile while scrolling">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>حجز مطرب</title>
+        <link rel="shortcut icon" type="image/x-icon" href="images/ficon/logo.png" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">  
+        <link href="css/materialize.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/ekko-lightbox.css" rel="stylesheet" type="text/css" />
+        <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href="css/fonts.css" rel="stylesheet" type="text/css" />
+        <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="css/owl.theme.css" rel="stylesheet" type="text/css" />
+        <link href="css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="css/timepicki.css" rel="stylesheet" type="text/css" />
+        <link href="css/hover.css" rel="stylesheet" type="text/css" />
+        <link href="css/sidebar.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!---<link href="css/style-en.css" rel="stylesheet" type="text/css" />--->
+        <link href="css/mobile.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    	<!---------- Start Loader ---------->
+    	<div class="loader second">
+        	<div class="loader-inner ball-scale-multiple">
+                <img src="images/logo/logo.png" alt="" />
+            </div>
+        </div>
+        <!---------- End Loader ---------->
+       	<div class="mobile-first m-scene">
+            <!-- Start Header -->
+            <header class=" wow fadeInDownBig">
+                <!---------- Start SideBar ---------->
+                <div id="page-content-wrapper">
+                    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                        <span class="bar one"></span>
+                        <span class="bar two"></span>
+                        <span class="bar three"></span>
+                    </button>
+                </div>
+                <!--<div id="wrapper">-->
+                <!--    <div class="overlay" data-toggle="offcanvas"></div>-->
+                    <!-- Sidebar -->
+                <!--    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">-->
+                <!--        <div class="logo-sidebar">-->
+                <!--        	<img src="images/logo/logo.png" alt="" />-->
+                <!--    	<span>فـرقــة مــاريـنـــا الـغــربـيـــة</span>-->
+                <!--    		<img src="images/logo/text-logo.png" alt="" />-->
+                <!--        </div>-->
+                <!--        <ul class="nav sidebar-nav">-->
+                <!--            <li><a href="index.html"><i class="fa fa-home"></i> الرئيسية</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-user"></i> تسجيل مطرب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-sign-in"></i> تسجيل عميل</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-refresh"></i> متابعة الطلب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-pencil"></i> ادخال الكود و الطباعة</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-users"></i> الادارة العليا</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-street-view"></i> المشرفين</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-briefcase"></i> مدير اعمال المطرب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-file-text-o"></i> الشكاوى</a></li>-->
+                <!--        </ul>-->
+                <!--        <ul class="social-media">-->
+                <!--            <li><a href=""><i class="fa fa-facebook"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-twitter"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-snapchat-ghost"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-instagram"></i></a></li>-->
+                <!--        </ul>-->
+                <!--    </nav>-->
+                <!--</div>-->
+                <!---------- End SideBar ---------->
+                
+                <!-- Start Logo -->
+                <div class="logo-header">
+                	<div class="icon-logo"><img src="images/logo/logo.png" alt="" /></div>
+                    <div class="text-logo">
+                    	<span>فـرقــة مــاريـنـــا الـغــربـيـــة</span>
+                    	<img src="images/logo/text-logo-black.png" alt="" />
+                    </div>
+                </div>
+                <!-- End Logo -->	
+                <button class="backPage" onclick="goBack()"><i class="fa fa-arrow-left"></i></button>
+            </header>
+            <!-- End Header -->
+            
+            <!-- Start Content -->
+            <div class="content bg">
+                <div class="col-xs-12 wow fadeInDownBig">
+                    <div class="title title-singer">
+                        <ul>
+                        	<li><img src="images/singer.png" alt="" /></li>
+                            <li><img src="images/singer-icon.png" alt="" /></li>
+                        </ul>
+                        <h1 class="border-grad">معاينة العقد</h1>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                <h1 class="title-table wow animation-div">الطرف الاول</h1>
+            	<div class="contract box wow animatio wow animation-div">
+                	
+                	<table>
+                    	<tbody>
+                        	<tr>
+                            	<td>م</td>
+                            	<td>1</td>
+                            </tr>
+                        	<tr>
+                            	<td>رقم العقد</td>
+                            	<td>123456</td>
+                            </tr>
+                        	<tr>
+                            	<td>تاريح تحرير العقد</td>
+                            	<td>01/01/1440</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم المنشاه </td>
+                            	<td>يوضع اسم المنشأة هنا</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم صاحب المنشاه </td>
+                            	<td>حسين العولقي</td>
+                            </tr>
+                        	<tr>
+                            	<td>رقم هوية صاحب المنشاه </td>
+                            	<td>1234567899</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم الدوله</td>
+                            	<td>السعوديه</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم المنطقه </td>
+                            	<td>الرياض</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم المدينه </td>
+                            	<td>صفر</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم الحي</td>
+                            	<td>يوضع اسم الحي هنا</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم المنشاه </td>
+                            	<td>1234567899</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="col-xs-12">
+                <h1 class="title-table wow fadeInDownBig">الطرف الثاني (فرقة مارينا الغربية)</h1>
+                <div class="contract box wow fadeInDownBig">
+                    
+                	<table>
+                    	<tbody>
+                        	<tr>
+                            	<td>م</td>
+                            	<td>1</td>
+                            </tr>
+                        	<tr>
+                            	<td>رقم العقد</td>
+                            	<td>123456</td>
+                            </tr>
+                        	<tr>
+                            	<td>تاريح تحرير العقد</td>
+                            	<td>01/01/1440</td>
+                            </tr>
+                        	<tr>
+                            	<td>الوظيفة</td>
+                            	<td>منسق فرقة مارينا الغربية</td>
+                            </tr>
+                        	<tr>
+                            	<td>رقم الهوية</td>
+                            	<td>1234567899</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="col-xs-12">
+                <h1 class="title-table wow fadeInDownBig">مفردات العقد المتفق عليه بين الطرفين</h1>
+                <div class="contract box wow fadeInDownBig">
+                    
+                	<table>
+                    	<tbody>
+                        	<tr>
+                            	<td>م</td>
+                            	<td>1</td>
+                            </tr>
+                        	<tr>
+                            	<td>اسم المطرب</td>
+                            	<td>حسين الجسمي</td>
+                            </tr>
+                        	<tr>
+                            	<td>تاريخ الحفل</td>
+                            	<td>1/3/2019</td>
+                            </tr>
+                        	<tr>
+                            	<td>وقت حضور الفرقة  </td>
+                            	<td>6 مساء</td>
+                            </tr>
+                        	<tr>
+                            	<td>وقت انتهاء الحفله </td>
+                            	<td>10 مساء</td>
+                            </tr>
+                        	<tr>
+                            	<td>المبلغ المتفق عليه</td>
+                            	<td>8000</td>
+                            </tr>
+                        	<tr>
+                            	<td>قيمة العربون </td>
+                            	<td>4000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <!--<div class="col-xs-12">-->
+                <!--<h1 class="title-table wow fadeInDownBig">موقع المناسبة</h1>-->
+                <!--<div class="contract box wow fadeInDownBig">-->
+                    
+                <!--	<table>-->
+                <!--    	<tbody>-->
+                <!--        	<tr>-->
+                <!--            	<td>الدولة</td>-->
+                <!--            	<td>المملكة العربية السعودية</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>المنطقة</td>-->
+                <!--            	<td>مكة المكرمة</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>المدينة</td>-->
+                <!--            	<td>جدة</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>الحي</td>-->
+                <!--            	<td>السلامة</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>إسم الفندق</td>-->
+                <!--            	<td>الدار البيضاء</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>م</td>-->
+                <!--            	<td>1</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>إسم القاعة</td>-->
+                <!--            	<td>الامبرطورة</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>وقت حضور المطربة</td>-->
+                <!--            	<td>10:30ص</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>وقت مغادرة المطربة</td>-->
+                <!--            	<td>3:30م</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>قيمة تشغيل شريط الزفة</td>-->
+                <!--            	<td>500ريال</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>الزفة المجانية</td>-->
+                <!--            	<td>واحدة</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>المبلغ المتفق عليه خارج الزفة</td>-->
+                <!--            	<td>35000 <br /> (خمسة وثلاثون الف وخمسمائة ريال)</td>-->
+                <!--            </tr>-->
+                <!--            <tr>-->
+                <!--            	<td>العربون المدفوع</td>-->
+                <!--            	<td>3000 <br /> (ثلاثة الف ريال)</td>-->
+                <!--            </tr>-->
+                <!--            <tr>-->
+                <!--            	<td>العربون المتبقي</td>-->
+                <!--            	<td>32500 <br /> (اثنين وثلاثون الف وخمسمائة ريال)</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>عدد ساعات العمل</td>-->
+                <!--            	<td>خمسة ساعات</td>-->
+                <!--            </tr>-->
+                <!--        	<tr>-->
+                <!--            	<td>قيمة زيادة الساعة الواحدة</td>-->
+                <!--            	<td>2500 ريال</td>-->
+                <!--            </tr>-->
+                <!--        </tbody>-->
+                <!--    </table>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="col-xs-12 wow fadeInDownBig">
+                    <div class="col-xs-6 padding-right">
+                        <button data-toggle="modal" data-target="#t2" class="nextPage" >حفظ نهائي</button>
+                    </div>
+                    <div class="col-xs-6 padding-left">
+                        <button data-toggle="modal" data-target="#t1" class="nextPage requ" >حفظ مبدئي</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End Content -->
+            <!-- Start Footer -->
+            <footer>
+            	<div class="col-sm-8 col-xs-12"><p>جميع الحقوق محفوظة لدى مارينا الغربية © 2019 </p></div>
+                <div class="col-sm-4 col-xs-12">
+                	<a href="http://elryad.com" class="logo-elryad" title="تصميم مواقع / تطبيقات"> تصميم وبرمجة شركة الرياض</a>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div>
+        <div class="chatLive"><i class="fa fa-comment"></i></div>
+        
+        <div class="modal fade" id="t1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+              	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h1>عميلنا العزيز</h1>
+                <table class="client">
+                	<tr>
+                        <td colspan="2"><span>نفيدكم بأن رقم طلبكم هو</span></td>
+                        <td><input type="text" value="12344" disabled /></td>
+                    </tr>
+                	<tr>
+                        <td colspan="2"><span>ورقم العقد الخاص بكم هو</span></td>
+                        <td><input type="text" value="12344" disabled /></td>
+                    </tr>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <span>نأمل الضغط علي كلمة حفظ حتي يتم التعديل علي البيانات السابقة</span>
+                <button type="button" class="nextPage"  data-toggle="modal" data-target="#t2" data-dismiss="modal">حفظ نهائي</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="t2">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h1>هل تريد الحفظ النهائي ؟</h1>
+                <p>
+                	<i class="fa fa-info-circle"></i>
+                    عزيزي العميل قبل الضغط علي كلمة حفظ نفيدكم بأنه لا يمكنكم التعديل علي الطلب مرة اخري وسوف يطلب منكم النظام تحويل مبلغ العربون حسب الاتفاق المقرر
+                </p>
+              </div>
+              <div class="modal-footer">
+                <div class="col-xs-6">
+                	<button type="button" class="nextPage"  data-toggle="modal" data-target="#t3" data-dismiss="modal">حفظ نهائي</button>
+                </div>
+              	<div class="col-xs-6">
+                	<button type="button" class="nextPage requ" data-dismiss="modal">إالغاء الامر</button>
+                </div>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        <div class="modal fade" id="t3">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="icon">
+                	<i class="fa fa-check"></i>
+                </div>
+                <h1>تم حفظ بياناتكم بنجاح !</h1>
+                <h1>شكرا لاختياركم مارينا الغربية</h1>
+                <div class="progress-container">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" style="width:0%"></div>
+                    </div>
+                </div>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        
+       	
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap-carousel.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/responsiveCarousel.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/ekko-lightbox.js"></script>
+        <script src="js/jquery.tooltipster.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/bootstrap-clockpicker.min.js"></script>
+        <script src="js/jquery.smoothState.js"></script>
+        <script src="js/timepicki.js"></script>
+        <script src="js/java.js"></script>
+        <script>
+        	$(window).load(function () {
+                $('.loader').fadeOut(500);
+            });
+			$('#timepicker1').timepicki();
+			$('#timepicker2').timepicki();
+        </script>
+    </body>
+</html>

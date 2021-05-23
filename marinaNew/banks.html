@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="utf-8">
+        <meta name="author" content="Hadeer Magdy">
+        <meta name="description" content="NumScroller - jQuery plugin for number increment rolling animation when it becomes visibile while scrolling">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>الحسابات البنكية لفرقة مارينا</title>
+        <link rel="shortcut icon" type="image/x-icon" href="images/ficon/logo.png" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">  
+        <link href="css/materialize.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/ekko-lightbox.css" rel="stylesheet" type="text/css" />
+        <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href="css/fonts.css" rel="stylesheet" type="text/css" />
+        <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="css/owl.theme.css" rel="stylesheet" type="text/css" />
+        <link href="css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="css/timepicki.css" rel="stylesheet" type="text/css" />
+        <link href="css/hover.css" rel="stylesheet" type="text/css" />
+        <link href="css/sidebar.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!---<link href="css/style-en.css" rel="stylesheet" type="text/css" />--->
+        <link href="css/mobile.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    	<!---------- Start Loader ---------->
+    	<div class="loader second">
+        	<div class="loader-inner ball-scale-multiple">
+                <img src="images/logo/logo.png" alt="" />
+            </div>
+        </div>
+        <!---------- End Loader ---------->
+       	<div class="mobile-first m-scene">
+            <!-- Start Header -->
+            <header class=" wow fadeInDownBig">
+                <!---------- Start SideBar ---------->
+                <div id="page-content-wrapper">
+                    <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                        <span class="bar one"></span>
+                        <span class="bar two"></span>
+                        <span class="bar three"></span>
+                    </button>
+                </div>
+                <!--<div id="wrapper">-->
+                <!--    <div class="overlay" data-toggle="offcanvas"></div>-->
+                    <!-- Sidebar -->
+                <!--    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">-->
+                <!--        <div class="logo-sidebar">-->
+                <!--        	<img src="images/logo/logo.png" alt="" />-->
+                <!--    	<span>فـرقــة مــاريـنـــا الـغــربـيـــة</span>-->
+                <!--    		<img src="images/logo/text-logo.png" alt="" />-->
+                <!--        </div>-->
+                <!--        <ul class="nav sidebar-nav">-->
+                <!--            <li><a href="index.html"><i class="fa fa-home"></i> الرئيسية</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-user"></i> تسجيل مطرب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-sign-in"></i> تسجيل عميل</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-refresh"></i> متابعة الطلب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-pencil"></i> ادخال الكود و الطباعة</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-users"></i> الادارة العليا</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-street-view"></i> المشرفين</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-briefcase"></i> مدير اعمال المطرب</a></li>-->
+                <!--            <li><a href="#"><i class="fa fa-file-text-o"></i> الشكاوى</a></li>-->
+                <!--        </ul>-->
+                <!--        <ul class="social-media">-->
+                <!--            <li><a href=""><i class="fa fa-facebook"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-twitter"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-snapchat-ghost"></i></a></li>-->
+                <!--            <li><a href=""><i class="fa fa-instagram"></i></a></li>-->
+                <!--        </ul>-->
+                <!--    </nav>-->
+                <!--</div>-->
+                <!---------- End SideBar ---------->
+                
+                <!-- Start Logo -->
+                <div class="logo-header">
+                	<div class="icon-logo"><img src="images/logo/logo.png" alt="" /></div>
+                    <div class="text-logo">
+                    	<span>فـرقــة مــاريـنـــا الـغــربـيـــة</span>
+                    	<img src="images/logo/text-logo-black.png" alt="" />
+                    </div>
+                </div>
+                <!-- End Logo -->	
+                <button class="backPage" onclick="goBack()"><i class="fa fa-arrow-left"></i></button>
+            </header>
+            <!-- End Header -->
+            
+            <!-- Start Content -->
+            <div class="content bg">
+                <div class="col-xs-12 wow fadeInDownBig">
+                    <div class="title title-singer">
+                        <ul>
+                        	<li><img src="images/singer.png" alt="" /></li>
+                            <li><img src="images/singer-icon.png" alt="" /></li>
+                        </ul>
+                        <h1 class="border-grad">الحسابات البنكية لفرقة مارينا الغربية</h1>
+                    </div>
+                </div>
+                <div class="form-style">
+                    <form action="contract-view.html">
+                        <div class="col-md-6 col-xs-12 wow animation-div ">
+                        	<div class="bank">
+                            	<div class="img-bank"><img src="images/bank1.png" alt="" /></div>
+                                <div class="text-bank">
+                                	<table>
+                                    	<tbody>
+                                        	<tr>
+                                            	<td>رقم الحساب  </td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                        	<tr>
+                                            	<td>رقم حساب مع الايبان  </td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                            <tr>
+                                            	<td>إسم المستفيد</td>
+                                            	<td>فرقة مارينا الغربية</td>
+                                            </tr>
+                                            <tr>
+                                            	<td>رقم الجوال المستفيد</td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 wow fadeInDownBig">
+                        	<div class="bank">
+                            	<div class="img-bank"><img src="images/bank2.png" alt="" /></div>
+                                <div class="text-bank">
+                                	<table>
+                                    	<tbody>
+                                        	<tr>
+                                            	<td>رقم الحساب  </td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                        	<tr>
+                                            	<td>رقم حساب مع الايبان  </td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                            <tr>
+                                            	<td>إسم المستفيد</td>
+                                            	<td>فرقة مارينا الغربية</td>
+                                            </tr>
+                                            <tr>
+                                            	<td>رقم الجوال المستفيد</td>
+                                                <td>123456789123456789</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 wow fadeInDownBig ">
+                        	<div class="form-group">
+                            	<input type="submit" class="nextPage" value="متابعة" />
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!-- End Content -->
+            <!-- Start Footer -->
+            <footer>
+            	<div class="col-sm-8 col-xs-12"><p>جميع الحقوق محفوظة لدى مارينا الغربية © 2019 </p></div>
+                <div class="col-sm-4 col-xs-12">
+                	<a href="http://elryad.com" class="logo-elryad" title="تصميم مواقع / تطبيقات"> تصميم وبرمجة شركة الرياض</a>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div>
+        <div class="chatLive"><i class="fa fa-comment"></i></div>
+       	
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap-carousel.js"></script>
+        <script src="js/owl.carousel.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/responsiveCarousel.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/ekko-lightbox.js"></script>
+        <script src="js/jquery.tooltipster.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/bootstrap-clockpicker.min.js"></script>
+        <script src="js/jquery.smoothState.js"></script>
+        <script src="js/timepicki.js"></script>
+        <script src="js/java.js"></script>
+        <script>
+        	$(window).load(function () {
+                $('.loader').fadeOut(500);
+            });
+			$('#timepicker1').timepicki();
+			$('#timepicker2').timepicki();
+        </script>
+    </body>
+</html>
