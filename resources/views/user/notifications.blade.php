@@ -23,6 +23,7 @@
                             
                             <p>{{ $notification->created_at->diffForHumans()  }}</p>
                             
+                            <a onclick="delete_notifcation('{{$notification->id}}')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </div>
@@ -36,3 +37,25 @@
 </div>
 
 @endsection
+
+<script>
+    
+            function delete_notifcation(id){
+            if(confirm("هل انت متأكد من حذف البيانات")){
+                $.ajax({
+                    url : '{{url('/')}}/notifcation/delete/'+id,
+                    type : "GET",
+                    data : {'_method' : 'GET', '_token' : $('meta[name=csrf-token]').attr('content')},
+                    success : function(data){
+                        window.location.reload();
+                        alert( 'تم الحذف بنجاح');
+                    },
+                    error : function(){
+                       alert( 'لا يمكن الوصول للبيانات !');
+
+                    }
+                });
+            }
+        }
+        
+</script>

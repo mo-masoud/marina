@@ -59,7 +59,7 @@
                                     <ul>
                                         @if($order->provided_by_marina==0 &&isset($singer->logo))
                                         
-                                          @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+                                          @if($order->singer_gender == 0 || $order->singer_gender == 1)
                                                <li><img src="{{ url('images/singer.png') }}" alt=""></li>
                                                  @endif
                                         @if($order->singer_gender == '1' || $order->singer_gender == '0')
@@ -163,7 +163,7 @@
 
 
 
-            @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+            @if($order->singer_gender == 0 || $order->singer_gender == 1)
             <tr class="head-center">
                 <td>
                     <table class="table-center">
@@ -207,7 +207,7 @@
                             <td style="color:#22b14c;">جدة</td>
                         </tr>
                     </table>
-                    @if($order->singer_gender == 'male')
+                    @if($order->singer_gender == 0)
 
             <tr class="title-h">
                 <td> بيانات المطرب :</td>
@@ -232,8 +232,10 @@
 
                         @if($order->singer_gender == 1)
                                 <i>اسم المطربة :</i>
+
                                 @elseif($order->singer_gender == 0)
                                 <i>اسم المطرب :</i>
+
                                 @else
                                 <i>الطرف الثاني :</i>
                                 
@@ -440,7 +442,7 @@
                 <tr>
                     <td>
 
-                                  @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+                                  @if($order->singer_gender == 0 || $order->singer_gender == 1)
 
 <h4 style="text-decoration: underline;"> الطرف  الأول العميل</h4>
                     @elseif($order->singer_gender == '0')
@@ -495,13 +497,9 @@
                         </td>
                         <td>
 
-                      @if($order->singer_gender == 'male' ||  $order->singer_gender == 'female')
+                      @if($order->singer_gender == 0 ||  $order->singer_gender == 1)
 
-
-                            <h5 style="margin: 14px 0 0;">فرقة مارينا الغربية</h5>
-                            <img class="sign" src ="{{  asset('storage/'.setting('site.marina_contract_image')) }}" />
-@else
-                            <h5 style="margin: 14px 0 0;">{{$order->singer_name}}</h5>
+ <h5 style="margin: 14px 0 0;">{{$order->singer_name}}</h5>
                             
                             
                             
@@ -513,15 +511,20 @@
                             
                             
                             @if($singer != null)
-                            <img class="sign" src ="{{  asset('storage/'.$singer->avatar) }}" />
+                            <img class="sign" src ="https://marina-al-gharbia.com/storage/settings/June2021/G2EsXAZRmW11u3YkhdMs.png" />
                            @endif
                             
+                            
+@else
+                           
+                            <h5 style="margin: 14px 0 0;">فرقة مارينا الغربية</h5>
+                            <img class="sign" src ="{{  asset('storage/'.setting('site.marina_contract_image')) }}" />
                             
 
 @endif
 
-                            @else
-                                                 @if($order->singer_gender == 'male' ||  $order->singer_gender == 'female')
+@else
+                                                 @if($order->singer_gender == 0 ||  $order->singer_gender == 1)
 
 
                             <h5 style="margin: 14px 0 0;">فرقة مارينا الغربية</h5>

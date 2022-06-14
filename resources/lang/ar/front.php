@@ -278,5 +278,6 @@ return [
   'messageManger'                     => 'مراسلة الإدارة',
   'delete_order'                      => 'حذف العقد',
   'codeSent'                          => 'تم ارسال رقم العقد',
+  'Singer Logo'                       => 'شعار المطرب',
 
 ];

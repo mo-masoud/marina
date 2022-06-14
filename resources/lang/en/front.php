@@ -266,5 +266,6 @@ return [
   'messageManger'                     => 'Correspondence to management',
   'delete_order'                      => 'Delete contract',
   'codeSent'                          => 'code Sent',
+  'Singer Logo'                       => 'Singer Logo',
 
 ];

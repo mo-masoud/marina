@@ -35,7 +35,7 @@ Route::get('testsms',function(){
                 'BasicAuthUserName' => 'Meshal905)',
                 'Accept' => 'application/json'],
             'form_params' => [
-                "appsid" => "OzlJ86LOFmgI1dSUPGAkdIF9H4Vpjd",
+                "appsid" => "eWb2cExbmNGu0SOAcH89YJk6hA7NNq",
                 "msg" =>'dfsdsdf',
                 "sender" => "Marin",
                 "to" =>'966543995879',
@@ -57,7 +57,7 @@ dd($response);
 
      Route::get('send/{message}/{phone}'   , function($message,$phone) {
       $client = new \GuzzleHttp\Client();
-      $request = $client->get("http://api.unifonic.com/wrapper/sendSMS.php?userid=Marinmusic2030@gmail.com&password=Hussain@123&msg=".$message."&sender=MARINA&to=".$phone."&encoding=UTF8");
+      $request = $client->get("http://api.unifonic.com/wrapper/sendSMS.php?userid=Marinamusic2030@gmail.com&password=Hussein@1980!=".$message."&sender=MARINA&to=".$phone."&encoding=UTF8");
       $response = $request->getBody();
   $response =  (explode("<br />",$response));
      // return substr($response[0], -1) == "0" ? true : false ;
@@ -222,13 +222,17 @@ Route::get('lang/{lang}', function ($lang) {
 });
 
 
+Route::get('notifcation/delete/{id}','UserController@delete_notification')->name('delete_notification')->middleware('auth');
+
 Route::get('delay_order','OrdersController@delay_order')->name('delay_order');
 Route::get('close_order','OrdersController@close_order')->name('close_order');
 Route::get('cancle_order','OrdersController@cancle_order')->name('cancle_order');
 
 Route::get('approve_order','OrdersController@approve_order')->name('approve_order');
+Route::get('approve_order_groom','OrdersController@approve_order_groom')->name('approve_order_groom');
 
-
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_seal');
 
 Route::get('home', function () {
 

@@ -3752,3 +3752,16 @@ table td input[type="checkbox"] {
 .contract-view.print-n tr td p.prag-inline {
     display: inline-block;
 }
+
+.logo.title.title-singer img {
+    margin-bottom: 20px;
+    max-width: 140px;
+}
+
+.logo.title.title-singer img {
+    margin-bottom: 20px !important;
+}
+
+.contract-view.print-n tr table.table-center tr td.mail-h {
+    font-size: 15px !important;
+}

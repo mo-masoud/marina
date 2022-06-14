@@ -96,6 +96,12 @@
 				@lang('front.Conversation and messages')
 			</a>
 		</div>
+		<div class="col-xs-6 wow fadeInDownBig">
+			<a href="{{ url('/profile') }}" class="box-style">
+				<i class="fa fa-user"></i>
+				@lang('front.Singer Logo')
+			</a>
+		</div>
 	</div>
  @endif
 

@@ -354,11 +354,11 @@ try {
 
         [
             "headers" => [
-                "Authorization" => "Basic " . base64_encode('Marinmusic2030@gmail.com' . ':' . 'Hussain@123'),
+                "Authorization" => "Basic " . base64_encode('Marinamusic2030@gmail.com' . ':' . 'Hussein@1980!'),
                 'BasicAuthUserName' => 'Hussain@123',
                 'Accept' => 'application/json'],
             'form_params' => [
-                "appsid" => "IIPWq76u1Q1EDDXSX10UTfO6MH0S6a",
+                "appsid" => "eWb2cExbmNGu0SOAcH89YJk6hA7NNq",
                 "msg" => $message,
                 "sender" => "Marin",
                 "to" => $mobile,

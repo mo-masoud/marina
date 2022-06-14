@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use Auth;
+use Image;
+use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Models\Modrator;
@@ -60,6 +62,13 @@ class UserController extends Controller {
     }
     return view('user.notifications', compact('notifications'));
 	}
+	
+	    public function delete_notification($id)
+    {
+        $notification = Notification::find($id);
+        $notification->delete();
+    }
+    
 
 	public function invoices(){
     if(Auth::guard('moderator')->check()){
@@ -77,5 +86,29 @@ class UserController extends Controller {
 		return view('user.invoice', compact('order'));
 
 	}
+	
+	public function profile(){
+	    
+	    return view('profile', array('user' => Auth::user()) );
+	    
+	}
+	
+	public function update_seal(Request $request){
+	    
+	    //Handle the user upload of seal
+	    if($request->hasFile('seal')) {
+	        $seal = $request->file('seal');
+	        $filename= time() . '.' . $seal->getClientOriginalExtension();
+	        Image::make($seal)->save( public_path('images/uploads/' . $filename) );
+	        
+	        $user = Auth::user();
+	        $user->seal = $filename;
+	        $user->save();
+	}
+	
+	return view('profile', array('user' => Auth::user()) );
+	
+	}
+	
 
 }

@@ -11,26 +11,18 @@
 {{--@dd(json_decode(Auth::user()->additional_permssions))
     --}}
 
- @php
-          $modrator =\App\Models\Modrator::find(auth("moderator")->user());
-        
+    @php
+      $modrator =\App\Models\Modrator::find(auth("moderator")->user());
+
         $user =\App\User::where('id',$modrator->first()->user_id)->first();
-        
     @endphp
 
 
     {{--<img src="{{url('storage/'.$avatar)}}" alt="" /> --}}
 
-            
+
 <div class="logo singer wow fadeInDownBig">
-    @if(Auth::user()->role_id == 1)
-	<img src="{{url('/')}}/images/singer.png" alt="" />
-    	<span class="text-grad">@lang('front.site_title')</span>
-    	@else
-    	@if($user->avatar != null)
-	<img  src="{{url('storage/'.$user->avatar)}}" alt="" />
-    @endif
-        @endif
+
 	<div class="col-xs-12 wow fadeInDownBig" style="visibility: visible;">
 		<div class="title other">
 			<h1 class="border-grad">{{trans('front.createModrator')}}</h1>
@@ -57,7 +49,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    
+
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                     <h1>{{ trans('front.are_you_surefinal_save') }}</h1>
                     <p>
@@ -98,7 +90,7 @@
 
 <div class="choose-login wow fadeInDownBig">
         @if(isset(json_decode(Auth::user()->additional_permssions)->allow_edit))
-          
+
  @if($order->final_submit==0)
   <a href="#" class="btn-style nextPage animation-div" data-toggle="modal" data-target="#edit_order{{ $order->id }}">@lang('front.edit_order')</a>
 @endif
@@ -108,8 +100,8 @@
   <!--    onclick="event.preventDefault(); document.getElementById('sendCode-form').submit();">-->
   <!--    @lang('front.sendCode')-->
   <!--</a>-->
-  
-           @if(isset(json_decode(Auth::user()->additional_permssions)->allow_booking)) 
+
+           @if(isset(json_decode(Auth::user()->additional_permssions)->allow_booking))
   <a href="{{ url('view/order/'.$order->id) }}" class="btn-style nextPage fadeInDownBig">
       طباعة العقد
   </a>
@@ -117,32 +109,32 @@
   <form id="sendCode-form" action="{{ url('sendCode/'.$order->id) }}" method="POST" style="display: none;">
       {{ csrf_field() }}
   </form>
-  
+
     @if(isset(json_decode(Auth::user()->additional_permssions)->allow_message))
-          
-            
+
+
   <a href="{{route('message.manger',$order->user_id)}}" class="btn-style nextPage fadeInDownBig">مراسلة العميل</a>
-  
+
     <a href="{{route('message.manger',$order->singer_id)}}" class="btn-style nextPage fadeInDownBig">
         {{$order->singer_gender == 0 ? 'مراسلة المطرب':'مراسلة المطربة'}}
         </a>
-  
-               @endif   
-               
-               
-               
-               
-               
-               
-               
+
+               @endif
+
+
+
+
+
+
+
                @if(isset(json_decode(Auth::user()->additional_permssions)->allow_close))
   <a href="#" class="btn-style nextPage animation-div" data-toggle="modal" data-target="#delete_order{{ $order->id }}">@lang('front.delete_order')</a>
                 @endif
-                
-                
+
+
  @if(isset(json_decode(Auth::user()->additional_permssions)->allow_edit))
         <a class="btn-style nextPage animation-div" data-toggle="modal" data-target="#edit_order{{ $order->id }}">تعديل العقد</a>
-    
+
     @endif
 </div>
 
@@ -214,21 +206,6 @@
                     </div>
 
                 @endforeach
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <div class="col-md-12">
                     <label>@lang('front.order_type')</label>
@@ -751,10 +728,10 @@
           </div>
 
           @endif
-        
-        
-        
-        
+
+
+
+
             <div class="col-md-12">
 
           <div class="form-group">
@@ -777,7 +754,7 @@
            <div class="form-group">
             <label>@lang('front.canceled')</label>
             <select name="canceled" id="canceled_val">
-                <option value="" @if($order->canceled == '') selected @endif> - - -</option>    
+                <option value="" @if($order->canceled == '') selected @endif> - - -</option>
             <option value="0" @if($order->canceled == '0') selected @endif>رفض الالغاء</option>
               <option value="1" @if($order->canceled == '1') selected @endif>الموافقه على الالغاء العقد</option>
                 <option value="2" @if($order->canceled == '2') selected @endif>قيد الانتظار</option>
@@ -788,10 +765,10 @@
                     " id="canceled">تأكيد</i>
           </div>
           </div>
-          
-          
-                              
-          
+
+
+
+
 
                     <div class="col-md-12">
 
@@ -830,7 +807,49 @@
                  </div>
 
              </div>
+             <?php use App\Models\Grooms; $Grooms = Grooms::where('order_id',$order->id)->get() ?>
+             @if(count($Grooms)>0)
 
+
+             <?php
+                 $GromGroups = $Grooms->groupBy('approved');
+                 ?>
+             <div class="col-md-12">
+
+                 <div class="form-group">
+
+
+                     <label>حالة العريس داخل العقد</label>
+                     <small>للتغير اختر العريس واضغط على موافق</small>
+
+                     <select name="Groomsapproved" id="Groomsapproved_value">
+{{--                         <optgroup label="12">
+                         <option value="" @if($order->delied == '' ) selected @endif> {{$GromGroups}}</option>
+                         </optgroup>--}}
+
+                         @foreach($GromGroups as $group => $types)
+                             <optgroup  data-group="{{$group}}" label="{{($group == 1 ? 'تم الموافقة':($group == 2 ? 'فى انتظار الموافقه':'غير معروف')) }}">
+                                 @foreach($types as $type)
+                                     <option value="{{$type->id}}">
+
+                                         <td> الاسم :  {{$type->name}} </td>
+                                         <td> || </td>
+                                         <td> المبلغ :  {{$type->price}} </td>
+
+                                     </option>
+                                 @endforeach
+                             </optgroup>
+                         @endforeach
+
+                     </select>
+
+                     <i id="Groomsapproved" class="btn-style nextPage fadeInDownBig" style="
+                        width: 30%;
+                    ">تأكيد حالة العريس</i>
+                 </div>
+
+             </div>
+          @endif
 
       </div>
         <div class="modal-footer">
@@ -865,46 +884,70 @@
 
             $('#form').submit();
         })
-        
-        
-        
+
+
+
         $('#closed').on('click',function(){
-                
-            type = $('#closed_val').val();   
+
+            type = $('#closed_val').val();
             fetch(`https://marina-al-gharbia.com/close_order?id=${order_id}&type=${type}`)
 
            window.location.reload();
-           
+
         });
-        
-        
+
+
         $('#delied').on('click',function(){
-                    type = $('#delied_val').val();   
+                    type = $('#delied_val').val();
                        fetch(`https://marina-al-gharbia.com/delay_order?id=${order_id}&type=${type}`)
                     window.alert("تم تأجيل العقد بنجاح");
                        window.location.reload();
         });
-        
-        
+
+
         $('#canceled').on('click',function(){
-                        type = $('#canceled_val').val();  
+                        type = $('#canceled_val').val();
                        fetch(`https://marina-al-gharbia.com/cancle_order?id=${order_id}&type=${type}`)
                     window.alert("تم الغاء العقد بنجاح");
                        window.location.reload();
         });
-        
-        
-        
-        
+
+
+
+
          $('#approved').on('click',function(){
-                        type = $('#approved_val').val();  
+                        type = $('#approved_val').val();
                        fetch(`https://marina-al-gharbia.com/approve_order?id=${order_id}&type=${type}`)
                     window.alert("تم الموافقة علي العقد بنجاح");
                        window.location.reload();
         });
-        
-        
-        
+
+
+    $('#Groomsapproved').on('click',function(){
+
+       var url = '{{ url('/') }}';
+       var groomd_id = $('#Groomsapproved_value').val();
+        var type = $('#Groomsapproved_value :selected').parent().attr('data-group');
+
+        if(type == 1){
+            var approved = 2
+            fetch(`${url}/approve_order_groom?order_id=${order_id}&groomd_id=${groomd_id}&type=${type}&approved_id=${approved}`)
+            window.alert("تم الغاء الموافقة بنجاح");
+        }
+        if(type == 2){
+            var approved = 1
+            fetch(`${url}/approve_order_groom?order_id=${order_id}&groomd_id=${groomd_id}&type=${type}&approved_id=${approved}`)
+            window.alert("تم الموافقة على العريس بنجاح");
+
+        }
+        if(type > 2){
+            window.alert("حالة غير معروفة");
+        }
+
+        window.location.reload();
+    });
+
+
     </script>
 
     @endsection

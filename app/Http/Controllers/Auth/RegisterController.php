@@ -7,6 +7,7 @@ use abdullahobaid\mobilywslaraval\Mobily;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
@@ -62,7 +63,7 @@ class RegisterController extends Controller {
 	 * @param  array  $data
 	 * @return \App\User
 	 */
-	protected function register() {
+	protected function register(Request $request) {
         Request()->session()->put('singer_type', 10);
 
 	    if(!session('user_data')){
@@ -112,6 +113,17 @@ class RegisterController extends Controller {
 			}
 
 		}else{
+		    
+            $rules= [
+                'birthdate' => ['required','date'],
+            ];
+
+            $this->validate($request, $rules ,$messages = [
+                'birthdate.required' => 'تاريخ الميلاد مطلوب',
+                'birthdate.date' => 'من فضلك ادخل تاريخ الميلاد بشكل صحيح ',
+
+            ]);
+            
 			$data= request()->all();
 			
             if(request()->has('singer')){

@@ -114,6 +114,7 @@ else
 	public function showModeratorsOrder($id) {
     	if ($auth = auth()->guard('moderator')->check()) {
         $order = Order::where('id',$id)->firstOrFail();
+
         if(auth()->guard('moderator')->user()->user_id == $order->singer_id){
           return view('moderator.orders.index',compact('order'));
         }else{
@@ -176,7 +177,7 @@ else
 
         $data['identity_source'] = request()->identity_source;
 		$data['order_id'] = $order->id;
-//$data['approved']=2;
+        $data['approved']=2;
 
 		Grooms::create($data);
 
@@ -778,7 +779,7 @@ $order=Order::find($id);
 	
 	public function approve_order(Request $request) {
 		 $order = Order::find($request->id);
-				$order->update([
+            $order->update([
 		    'approved'=>$request->type
 		    ]);
 		    
@@ -794,15 +795,42 @@ $order=Order::find($id);
 		    $mobile = User::find($order->user_id)->phone;
                 send_sms($message,$mobile);
 		    }
-		    
-		    
-		    
-		    
-		    
-		    
-	
-    
+
 }
+
+    public function approve_order_groom(Request $request) {
+
+        $order = Order::find($request->order_id);
+
+        $Groom = Grooms::where([
+            ['order_id','=',$request->order_id],
+            ['id','=',$request->groomd_id]
+        ])->get()->first();
+
+        $Groom->update([
+            'approved'=>$request->approved_id
+        ]);
+
+
+        if($request->approved_id != null){
+
+            if($request->approved_id == 1){
+
+                $message = 'نفيدكم بانه تمت الموافقه على العريس : ' .$Groom->name ;
+
+            }    else{
+
+                $message = 'نفيدكم بانه لم يتم الموافقه على العريس : ' .$Groom->name ;
+
+            }
+
+            $mobile = User::find($order->user_id)->phone;
+            send_sms($message,$mobile);
+
+        }
+
+    }
+
 public function DeleteOrder($id){
     
     

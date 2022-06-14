@@ -27,7 +27,7 @@
          
          
          
-         @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+         @if($order->singer_gender == 'male' || $order->singer_gender == 1)
         	<!--<img src="{{ url('images/logo-p.png') }}" />-->
         	          </p> <img src="{{  asset('storage/'.setting('site.marina_contract_image')) }}" />
 
@@ -76,12 +76,12 @@
                                 <div class="title title-singer">
                                       <ul>
                                           @if($order->provided_by_marina==0&&isset($singer->logo))
-                                     {{-- @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
-                                        <li><img src="{{ url('images/singer.png') }}" alt=""></li>
+                                     {{-- @if($order->singer_gender == 'male' || $order->singer_gender == 1)
+                                        <li><img src="{{ url('public/images/uploads/'.Auth::user()->seal) }}" alt=""></li>
                                           @endif
                                           @if($order->singer_gender == '1' || $order->singer_gender == '0')--}}
 
-                                        <li><img src="{{ asset('storage/'.$singer->avatar) }}" alt=""></li>
+                                        <li><img src="{{ url('public/images/uploads/'.Auth::user()->seal) }}" alt=""></li>
                                       {{--  @endif--}}
                                           @else
                                             <li> <img src="{{url('images/singer.png') }}" /></li>
@@ -161,7 +161,7 @@
                           </tr>
                           
                           <tr>
-                              <td class="td-catch">1</td>
+                              <td class="td-catch"> 1</td>
                               
                               <td>{{ $order->name_bridal ?? "" }}</td>
                               
@@ -175,7 +175,7 @@
                               
                               <td>{{ $order->identity_source ?? "" }}</td>
                               
-                              <td>{{ $order->phone ?? "" }}</td>
+                              <td>{{ $order->phone_bridal ?? "" }}</td>
                           </tr>
                           
                           @foreach($order->grooms as $groom)
@@ -189,7 +189,7 @@
                               
                                <td>{{ nationalityName($order->nationality) }}</td>
                                 <td>{{ $groom->identity_source }}</td>
-                              <!--<td>{{ $order->identity_source }}</td>-->
+                              <td>{{ $groom->phone }}</td>
                           </tr>
                           
                           @endforeach
@@ -201,13 +201,9 @@
                               <td>2</td>
                             <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
                                 <i>البريد الإلكتروني</i></th>
-                              <td>{{ \App\User::find($order->user_id)->email }}</td>
-                              <td></td>
-                             <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
-                                <i>رقم جوال العريس </i></th>
-                              <td>{{ $order->phone_bridal }}</td>
-
+                              <td class="mail-h" colspan="5">{{ \App\User::find($order->user_id)->email }}</td>
                           </tr>
+
                       </table>
                   </td>
               </tr>
@@ -215,13 +211,15 @@
 
   <tr class="title-h">
                 <td>الطرف الثاني</td>
-              </tr>
+  </tr>
 
-          @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+          @if($order->provided_by_marina==1)
               <tr class="head-center">
                 <td>
                   <table class="table-center">
+
                     <tr>
+
                         <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
                           <i>البند</i></th>
                         <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
@@ -236,8 +234,11 @@
                           <i>إنتماء العضو أو الفرقة</i></th>
                         <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
                           <i>مصدرها</i></th>
+
                     </tr>
+
                     <tr>
+
                         <td style="color:#22b14c;">الطرف الثاني</td>
                         <td style="color:#22b14c;">حسين محمد العولقي</td>
                         <td style="color:#22b14c;">2061895963</td>
@@ -247,13 +248,13 @@
                         <td style="color:#22b14c;">جدة</td>
                     </tr>
                 </table>
+               
 
-          @if($order->singer_gender == 'male')
-
+@if($order->singer_gender === 0 || $order->singer_gender === '0' || $order->singer_gender === 'male')
               <tr class="title-h">
                 <td> بيانات المطرب :</td>
               </tr>
-@else
+@elseif($order->singer_gender === 1 || $order->singer_gender === '1' || $order->singer_gender === 'female')
               <tr class="title-h">
                 <td> بيانات المطربة :</td>
               </tr>
@@ -271,10 +272,11 @@
                         <th><div class="img"><img src="{{ url('images/gray.png') }}" /></div>
 
 
-                                                @if($order->singer_gender == 'male')
-                          <i>اسم المطرب </i></th>
-                           @else
+                         @if($order->singer_gender === 0 || $order->singer_gender === '0' || $order->singer_gender === 'male')
+                          <i>اسم المطرب  </i></th>
+                         @elseif($order->singer_gender === 1 || $order->singer_gender === '1' || $order->singer_gender === 'female')
                           <i>اسم المطربة </i></th>
+
                            @endif
 
 
@@ -302,10 +304,12 @@
                     <tr>
                         <td style="color:#22b14c;">1</td>
 
-                             @if($order->singer_gender == 'male')
+                        @if($order->singer_gender === 0 || $order->singer_gender === '0' || $order->singer_gender === 'male')
                         <td style="color:#22b14c;"> إسم المطرب الاساسي </td>
-                           @else
+                           @elseif($order->singer_gender === 1 || $order->singer_gender === '1' || $order->singer_gender === 'female')
                         <td style="color:#22b14c;"> إسم المطربة الاساسية </td>
+                        @else
+                        <td style="color:#22b14c;"> إسم المطرب/ـه الأساسي </td>
                            @endif
                         @php
                         $singer = \App\User::find($order->singer_id);
@@ -330,10 +334,12 @@
                     <tr>
                         <td style="color:#22b14c;">2</td>
 
-                                                                     @if($order->singer_gender == 'male')
+                 @if($order->singer_gender === 0 || $order->singer_gender === '0' || $order->singer_gender === 'male')
                 <td style="color:#22b14c;"> إسم المطرب الاحتياطي</td>
-                @else
+                @elseif($order->singer_gender === 1 || $order->singer_gender === '1' || $order->singer_gender === 'female')
                                         <td style="color:#22b14c;"> إسم المطربة الاحتياطية </td>
+                                        @else
+                                              <td style="color:#22b14c;"> إسم المطرب/ـه الإحتياطي</td>
                                            @endif
                 
 
@@ -822,7 +828,7 @@
                 <td>
                     <ul>
                         <!--Check gate if marina-->
-                      @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+                      @if($order->provided_by_marina==1)
                       
                       @php
                       $conds = App\ConditionPersonal::orderBy('created_at','DESC')->get();
@@ -954,7 +960,7 @@
             <table class="table-sc">
                 <tr>
                     <td>
-                                  @if($order->singer_gender == 'male' || $order->singer_gender == 'female')
+                                  @if($order->singer_gender == 0 || $order->singer_gender == 1)
 <h4 style="text-decoration: underline;"> الطرف  الأول العميل</h4>
 
     @elseif($order->singer_gender == '0')
@@ -1011,12 +1017,9 @@
                         <td>
 
 
-                      @if($order->singer_gender == 'male' ||  $order->singer_gender == 'female')
+ @if($order->singer_gender == 0 ||  $order->singer_gender == 1)
 
 
-                            <h5 style="margin: 14px 0 0;">فرقة مارينا الغربية</h5>
-                
-@else
                             <h5 style="margin: 14px 0 0;">{{$order->singer_name}}</h5>
                             
                             
@@ -1030,17 +1033,39 @@
                             @if($singer != null)
                             <img class="sign" src ="{{  asset('storage/'.$singer->logo) }}" />
                            @endif
+                           
+
+                
+@else
+
+<h5 style="margin: 14px 0 0;"> فرقة مارينا الغربية </h5>
                     
 @endif
 
 
                             @else
-                                                 @if($order->singer_gender == 'male' ||  $order->singer_gender == 'female')
+
+ @if($order->singer_gender == 0 ||  $order->singer_gender == 1)
 
 
-                            <h5 style="margin: 14px 0 0;">فرقة مارينا الغربية</h5>
-                                                        <img class="sign" src ="{{  asset('storage/'.setting('site.marina_contract_image')) }}" />
+                            <h5 style="margin: 14px 0 0;">{{$order->singer_name}}</h5>
                             
+                            
+                            @php
+                            
+                            $singer = \App\User::where('id',$order->singer_id)->first();
+
+                            @endphp
+                            
+                            
+                            @if($singer != null)
+                            <img class="sign" src ="https://marina-al-gharbia.com/storage/settings/June2021/G2EsXAZRmW11u3YkhdMs.png" />
+                          @else
+
+
+                            <h5 style="margin: 14px 0 0;"> فرقة مارينا الغربية</h5>
+                                                        <img class="sign" src ="{{  asset('storage/'.setting('site.marina_contract_image')) }}" />
+                             @endif
 @endif
                             
 

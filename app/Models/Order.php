@@ -107,7 +107,7 @@ class Order extends Model {
 	public function grooms(){
 
 
-	    return $this->hasMany(Grooms::class);
+	    return $this->hasMany(Grooms::class)->where('approved',1);
     }
 
         
@@ -119,13 +119,13 @@ class Order extends Model {
             if($order->approved == 1&&$order->delied!=1&&$order->canceled!=1&&$order->closed!=1){
                 
                 $mobile = User::find($order->user_id)->phone;
+                
 // $message = "عزيري العميل لقد تم تأكيد حفلكم الكريم نأمل طباعة العقد الخاص من موقع مارينا الغربيه حيث أن رقم عقدكم هو ".$order->code_number." وشكرا لحسن تعاونكم معنا..";
+
 $message = "عزيري العميل لقد تم تأكيد حفلكم الكريم نأمل طباعة العقد الخاص بكم من موقع مارينا الغربيه حيث أن رقم عقدكم هو ".$order->code_number." وشكرا لحسن تعاونكم معنا..";
                 
-                
-                       $client = new \GuzzleHttp\Client();
-    $request = $client->get("http://api.unifonic.com/wrapper/sendSMS.php?userid=Marinmusic2030@gmail.com&password=Hussain@123&msg=".$message."&sender=MARINA&to=".$mobile."");
-    $response = $request->getBody();
+           $response =     send_sms($message ,$mobile);
+            
    $response =  (explode("<br />",$response));
       return substr($response[0], -1) == "0" ? true : false ;
             }

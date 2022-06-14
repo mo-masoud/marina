@@ -116,7 +116,7 @@
         <div class="col-md-6 col-xs-12  wow fadeInDownBig">
             <div class="form-group">
                 <label class="control-label">تاريخ الميلاد</label>
-                <input id="hijrDate" onclick="pickDate(event)" type="text" name="birthdate" value="{{ orderdata('birthdate') }}" class="w3-input w3-border" placeholder="yyy / mm / 01" required />
+                <input type="text" name="birthdate" value="{{ orderdata('birthdate') }}" class="w3-input w3-border birthday" placeholder="yyy / mm / 01" required />
                 <i class="fa fa-calendar"></i>
             </div>
         </div>

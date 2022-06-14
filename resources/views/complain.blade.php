@@ -8,7 +8,7 @@
     <!--    	<li><img src="images/singer.png" alt="" /></li>-->
     <!--        <li><img src="images/singer-icon.png" alt="" /></li>-->
     <!--    </ul>-->
-    <div class="logo singer title title-singer">
+    <div class="logo title title-singer">
         <img src="images/singer.png" alt="" />
         <h1 class="border-grad">@lang('front.complaints_text')</h1>
     </div>

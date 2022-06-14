@@ -18,6 +18,7 @@
 
     <form method="POST" action="{{ route('register') }}">
        @csrf
+        <input type="text" name="birthdate" value="2000/01/01" hidden>
         {{--  Name  --}}
         <div class="col-md-6 col-xs-12 wow animation-div">
             <div class="form-group">
